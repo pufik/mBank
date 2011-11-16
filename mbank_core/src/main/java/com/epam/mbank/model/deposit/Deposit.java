@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.epam.mbank.enums.DepositTypes;
+import com.epam.mbank.enums.DepositType;
 import com.epam.mbank.model.client.Client;
 
 @Entity
@@ -31,7 +31,7 @@ public class Deposit implements Serializable {
 	private Double balance = null;
 
 	@Column(name = "TYPE")
-	private DepositTypes type = null;
+	private DepositType type = null;
 
 	@Column(name = "ESTIMATED_BALANCE")
 	private Long estimatedBalance = null;
@@ -66,11 +66,11 @@ public class Deposit implements Serializable {
 		this.balance = balance;
 	}
 
-	public DepositTypes getType() {
+	public DepositType getType() {
 		return type;
 	}
 
-	public void setType(DepositTypes type) {
+	public void setType(DepositType type) {
 		this.type = type;
 	}
 

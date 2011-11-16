@@ -3,7 +3,7 @@ package com.epam.consoleApplication;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.classic.Session;
-import com.epam.mbank.enums.ClientTypes;
+import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.client.Client;
 
 //This is a temp application loader
@@ -23,7 +23,7 @@ public class ApplicationLoader {
 		client.setPhone("sdfgsdfgd");
 		client.setComment("fsdsdf");
 		client.setPassword("gfgdfgdfg");
-		client.setType(ClientTypes.REGULAR);
+		client.setType(ClientType.REGULAR);
 		client.setId(3L);
 		
 		session.save(client);
@@ -34,7 +34,7 @@ public class ApplicationLoader {
 		client1.setPhone("sdfgsdfgd");
 		client1.setComment("fsdsdf");
 		client1.setPassword("gfgdfgdfg");
-		client1.setType(ClientTypes.REGULAR);
+		client1.setType(ClientType.REGULAR);
 		client1.setId(4L);
 
 		session.save(client1);				

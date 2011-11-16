@@ -12,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.epam.mbank.enums.ClientTypes;
+import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.activity.Activity;
 import com.epam.mbank.model.deposit.Deposit;
 
@@ -33,7 +33,7 @@ public class Client implements Serializable {
 	private String password = null;
 
 	@Column(name = "TYPE")
-	private ClientTypes type = null;
+	private ClientType type = null;
 
 	@Column(name = "ADDRESS")
 	private String address = null;
@@ -83,11 +83,11 @@ public class Client implements Serializable {
 		this.password = password;
 	}
 
-	public ClientTypes getType() {
+	public ClientType getType() {
 		return type;
 	}
 
-	public void setType(ClientTypes type) {
+	public void setType(ClientType type) {
 		this.type = type;
 	}
 
