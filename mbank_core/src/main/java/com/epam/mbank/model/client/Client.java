@@ -4,15 +4,22 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.epam.mbank.enums.ClientType;
+import com.epam.mbank.model.account.Account;
 import com.epam.mbank.model.activity.Activity;
 import com.epam.mbank.model.deposit.Deposit;
 
@@ -23,6 +30,8 @@ public class Client implements Serializable {
 	private static final long serialVersionUID = -8238008002508028701L;
 
 	@Id
+	@SequenceGenerator(name = "CLIENT_SEQ", sequenceName = "CLIENT_TABLE_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLIENT_SEQ")
 	@Column(name = "CLIENT_ID")
 	private Long id = null;
 
@@ -33,6 +42,7 @@ public class Client implements Serializable {
 	private String password = null;
 
 	@Column(name = "TYPE")
+	@Enumerated(EnumType.STRING)
 	private ClientType type = null;
 
 	@Column(name = "ADDRESS")
@@ -47,16 +57,13 @@ public class Client implements Serializable {
 	@Column(name = "COMMENT")
 	private String comment = null;
 
-	// @OneToOne
-	// @JoinColumn(name = "ACCOUNT_ID")
-	// private Account account = new Account();
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "client")
+	private Account account = new Account();
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "DEPOSIT_ID")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
 	private Set<Deposit> deposits = new HashSet<Deposit>();
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ACTIVITY_ID")
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
 	private Set<Activity> activities = new HashSet<Activity>();
 
 	public Long getId() {
@@ -123,20 +130,31 @@ public class Client implements Serializable {
 		this.comment = comment;
 	}
 
-	// public Account getAccount() {
-	// return account;
-	// }
-	//
-	// public void setAccount(Account account) {
-	// this.account = account;
-	// }
+	public Account getAccount() {
+		return account;
+	}
 
-	public Set<? extends Deposit> getDeposits() {
+	public void setAccount(Account account) {
+		this.account = account;
+		account.setClient(this);
+	}
+
+	public Set<Deposit> getDeposits() {
 		return deposits;
 	}
 
 	public void setDeposits(Set<Deposit> deposits) {
 		this.deposits = deposits;
+	}
+
+	public void addDeposit(Deposit deposit) {
+		deposits.add(deposit);
+		deposit.setClient(this);
+	}
+
+	public void removeDeposit(Deposit deposit) {
+		deposits.remove(deposit);
+		// TODO When I deleted deposit must I set client null?
 	}
 
 	public Set<Activity> getActivities() {
@@ -145,6 +163,16 @@ public class Client implements Serializable {
 
 	public void setActivities(Set<Activity> activities) {
 		this.activities = activities;
+	}
+
+	public void addActivity(Activity activity) {
+		activities.add(activity);
+		activity.setClient(this);
+	}
+
+	public void removeActivity(Activity activity) {
+		activities.remove(activity);
+		// TODO When I deleted activity must I set client null?
 	}
 
 }

@@ -5,9 +5,12 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import com.epam.mbank.enums.DepositType;
@@ -20,6 +23,8 @@ public class Deposit implements Serializable {
 	private static final long serialVersionUID = -4983525392227140096L;
 
 	@Id
+	@SequenceGenerator(name = "DEPOSIT_SEQ", sequenceName = "DEPOSIT_TABLE_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DEPOSIT_SEQ")
 	@Column(name = "DEPOSIT_ID")
 	private Long id = null;
 
