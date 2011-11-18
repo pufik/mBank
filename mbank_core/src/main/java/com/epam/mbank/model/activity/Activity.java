@@ -91,4 +91,67 @@ public class Activity implements Serializable {
 		this.description = description;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((activityDate == null) ? 0 : activityDate.hashCode());
+		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((commission == null) ? 0 : commission.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+
+		if ((obj == null) || (getClass() != obj.getClass())) {
+			return false;
+		}
+
+		Activity other = (Activity) obj;
+
+		if ((activityDate == null) && (other.activityDate != null)) {
+			return false;
+		} else if (!activityDate.equals(other.activityDate)) {
+			return false;
+		}
+
+		if ((amount == null) && (other.amount != null)) {
+			return false;
+		} else if (!amount.equals(other.amount)) {
+			return false;
+		}
+
+		if ((client == null) && (other.client != null)) {
+			return false;
+		} else if (!client.equals(other.client)) {
+			return false;
+		}
+
+		if ((commission == null) && (other.commission != null)) {
+			return false;
+		} else if (!commission.equals(other.commission)) {
+			return false;
+		}
+
+		if ((description == null) && (other.description != null)) {
+			return false;
+		} else if (!description.equals(other.description)) {
+			return false;
+		}
+
+		if ((id == null) && (other.id != null)) {
+			return false;
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+
+		return true;
+	}
+
 }

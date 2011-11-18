@@ -18,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.epam.mbank.enums.ClientStatus;
 import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.account.Account;
 import com.epam.mbank.model.activity.Activity;
@@ -34,6 +35,10 @@ public class Client implements Serializable {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CLIENT_SEQ")
 	@Column(name = "CLIENT_ID")
 	private Long id = null;
+
+	@Column(name = "STATUS")
+	@Enumerated(EnumType.STRING)
+	private ClientStatus status = null;
 
 	@Column(name = "CLIENT_NAME")
 	private String name = null;
@@ -66,12 +71,24 @@ public class Client implements Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "client")
 	private Set<Activity> activities = new HashSet<Activity>();
 
+	public Client() {
+		status = ClientStatus.ACTIVE;
+	}
+
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public ClientStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(ClientStatus status) {
+		this.status = status;
 	}
 
 	public String getName() {
@@ -173,6 +190,88 @@ public class Client implements Serializable {
 	public void removeActivity(Activity activity) {
 		activities.remove(activity);
 		// TODO When I deleted activity must I set client null?
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((address == null) ? 0 : address.hashCode());
+		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj) {
+			return true;
+		}
+
+		if ((obj == null) || (getClass() != obj.getClass())) {
+			return false;
+		}
+
+		Client other = (Client) obj;
+
+		if ((address == null) && (other.address != null)) {
+			return false;
+		} else if (!address.equals(other.address)) {
+			return false;
+		}
+
+		if ((comment == null) && (other.comment != null)) {
+			return false;
+		} else if (!comment.equals(other.comment)) {
+			return false;
+		}
+
+		if ((email == null) && (other.email != null)) {
+			return false;
+		} else if (!email.equals(other.email)) {
+			return false;
+		}
+
+		if ((id == null) && (other.id != null)) {
+			return false;
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+
+		if ((name == null) && (other.name != null)) {
+			return false;
+		} else if (!name.equals(other.name)) {
+			return false;
+		}
+
+		if ((password == null) && (other.password != null)) {
+			return false;
+		} else if (!password.equals(other.password)) {
+			return false;
+		}
+
+		if ((phone == null) && (other.phone != null)) {
+			return false;
+		} else if (!phone.equals(other.phone)) {
+			return false;
+		}
+
+		if (status != other.status) {
+			return false;
+		}
+
+		if (type != other.type) {
+			return false;
+		}
+
+		return true;
 	}
 
 }

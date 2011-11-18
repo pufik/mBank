@@ -79,4 +79,62 @@ public class Account implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((balance == null) ? 0 : balance.hashCode());
+		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
+		result = prime * result + ((creditLimit == null) ? 0 : creditLimit.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object candidate) {
+		if (this == candidate) {
+			return true;
+		}
+
+		if ((candidate == null) || (getClass() != candidate.getClass())) {
+			return false;
+		}
+
+		Account other = (Account) candidate;
+
+		if ((balance == null) && (other.balance != null)) {
+			return false;
+		} else if (!balance.equals(other.balance)) {
+			return false;
+		}
+
+		if ((client == null) && (other.client != null)) {
+			return false;
+		} else if (!client.equals(other.client)) {
+			return false;
+		}
+
+		if ((comment == null) && (other.comment != null)) {
+			return false;
+		} else if (!comment.equals(other.comment)) {
+			return false;
+		}
+
+		if ((creditLimit == null) && (other.creditLimit != null)) {
+			return false;
+		} else if (!creditLimit.equals(other.creditLimit)) {
+			return false;
+		}
+
+		if ((id == null) && (other.id != null)) {
+			return false;
+		} else if (!id.equals(other.id)) {
+			return false;
+		}
+
+		return true;
+	}
+
 }

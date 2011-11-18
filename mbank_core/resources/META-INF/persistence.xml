@@ -4,7 +4,16 @@
 	version="2.0">
 	<persistence-unit name="mBankPersistenceUnit"
 		transaction-type="RESOURCE_LOCAL">
+
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<!-- Class mapping -->
+		<class>com.epam.mbank.model.client.Client</class>
+		<class>com.epam.mbank.model.account.Account</class>
+		<class>com.epam.mbank.model.deposit.Deposit</class>
+		<class>com.epam.mbank.model.activity.Activity</class>
+		<class>com.epam.mbank.model.system.SystemProperty</class>
+
 		<properties>
 			<!-- Database connection settings -->
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
@@ -19,5 +28,6 @@
 			<!-- Validate the database schema on startup -->
 			<property name="hibernate.hbm2ddl.auto" value="validate" />
 		</properties>
+
 	</persistence-unit>
 </persistence>
