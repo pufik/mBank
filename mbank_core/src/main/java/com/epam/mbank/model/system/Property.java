@@ -7,24 +7,26 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.epam.mbank.enums.SystemProperty;
+
 @Entity
 @Table(name = "PROPERTIES")
-public abstract class SystemProperty implements Serializable {
+public class Property implements Serializable {
 
 	private static final long serialVersionUID = 4646946339447884986L;
 
 	@Id
 	@Column(name = "PROP_KEY")
-	private String key = null;
+	private SystemProperty key = null;
 
 	@Column(name = "PROP_VALUE")
 	private String value = null;
 
-	public String getKey() {
+	public SystemProperty getKey() {
 		return key;
 	}
 
-	public void setKey(String key) {
+	public void setKey(SystemProperty key) {
 		this.key = key;
 	}
 

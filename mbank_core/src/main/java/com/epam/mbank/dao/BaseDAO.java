@@ -8,9 +8,11 @@ import com.epam.mbank.utils.persistence.EntityManagerUtil;
 
 public abstract class BaseDAO<T> {
 	private EntityManager entityManager = null;
+	private Class<T> objectClass = null;
 
-	public BaseDAO() {
+	public BaseDAO(Class<T> objectClass) {
 		entityManager = EntityManagerUtil.getEntityManager();
+		this.objectClass = objectClass;
 	}
 
 	// Override for getting query
@@ -33,7 +35,7 @@ public abstract class BaseDAO<T> {
 		entityManager.getTransaction().commit();
 	}
 
-	public T getById(Class<T> objectClass, Long id) {
+	public T getById(Long id) {
 		T object = null;
 		entityManager.getTransaction().begin();
 		object = (T) entityManager.find(objectClass, id);

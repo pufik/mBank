@@ -6,10 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.epam.mbank.dao.client.ClientDAO;
-import com.epam.mbank.enums.ClientType;
-import com.epam.mbank.model.account.Account;
+import com.epam.mbank.dao.deposit.DepositDAO;
 import com.epam.mbank.model.client.Client;
-import com.epam.mbank.model.deposit.Deposit;
 import com.epam.mbank.utils.system.SystemInitialization;
 
 //This is a temp application loader
@@ -23,9 +21,10 @@ public class ApplicationLoader {
 		logger.info("Start add info.");
 
 		ClientDAO clientDao = new ClientDAO();
-		Client client = (Client) clientDao.getById(Client.class, Long.valueOf(5));
+		Client client = (Client) clientDao.getById(Long.valueOf(5));
 		Collection<Client> clientList = clientDao.getAll();
-
+		DepositDAO depositDao = new DepositDAO();
+		
 		int a = 0;
 
 	}

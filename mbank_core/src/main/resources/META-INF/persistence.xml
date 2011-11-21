@@ -12,7 +12,7 @@
 		<class>com.epam.mbank.model.account.Account</class>
 		<class>com.epam.mbank.model.deposit.Deposit</class>
 		<class>com.epam.mbank.model.activity.Activity</class>
-		<class>com.epam.mbank.model.system.SystemProperty</class>
+		<class>com.epam.mbank.model.system.Property</class>
 
 		<properties>
 			<!-- Database connection settings -->

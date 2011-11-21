@@ -7,7 +7,7 @@ public enum DepositType {
 	private String description = null;
 
 	private DepositType(String description) {
-
+		this.description = description;
 	}
 
 	public String getDescription() {
