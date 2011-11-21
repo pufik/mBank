@@ -5,12 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.epam.mbank.enums.SystemProperty;
 
 @Entity
 @Table(name = "PROPERTIES")
+@NamedQueries({@NamedQuery(name = "allProperties", query = "SELECT p FROM Property p")})
 public class Property implements Serializable {
 
 	private static final long serialVersionUID = 4646946339447884986L;

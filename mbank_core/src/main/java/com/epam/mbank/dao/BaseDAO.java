@@ -9,14 +9,13 @@ import com.epam.mbank.utils.persistence.EntityManagerUtil;
 public abstract class BaseDAO<T> {
 	private EntityManager entityManager = null;
 	private Class<T> objectClass = null;
+	private String allQueryName = null;
 
-	public BaseDAO(Class<T> objectClass) {
+	public BaseDAO(Class<T> objectClass, String allQueryName) {
 		entityManager = EntityManagerUtil.getEntityManager();
 		this.objectClass = objectClass;
+		this.allQueryName = allQueryName;
 	}
-
-	// Override for getting query
-	public abstract String getAllQuery();
 
 	public void save(T object) {
 		entityManager.getTransaction().begin();
@@ -44,9 +43,8 @@ public abstract class BaseDAO<T> {
 		return object;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Collection<T> getAll() {
-		return (Collection<T>) entityManager.createQuery(getAllQuery()).getResultList();
+		return (Collection<T>) entityManager.createNamedQuery(allQueryName, objectClass).getResultList();
 	}
 
 	public void remove(T object) {

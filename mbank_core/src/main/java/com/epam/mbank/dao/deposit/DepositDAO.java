@@ -5,14 +5,9 @@ import com.epam.mbank.model.deposit.Deposit;
 
 public class DepositDAO extends BaseDAO<Deposit> {
 
-	private final static String GET_ALL_QUERY = "SELECT d FROM Deposit d";
+	private static final String ALL_DEPOSITS_QUERY_NAME = "allDeposits";
 
 	public DepositDAO() {
-		super(Deposit.class);
-	}
-
-	@Override
-	public String getAllQuery() {
-		return GET_ALL_QUERY;
+		super(Deposit.class, ALL_DEPOSITS_QUERY_NAME);
 	}
 }

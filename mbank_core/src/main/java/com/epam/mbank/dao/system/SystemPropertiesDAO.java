@@ -5,15 +5,9 @@ import com.epam.mbank.model.system.Property;
 
 public class SystemPropertiesDAO extends BaseDAO<Property> {
 
-	private final static String GET_ALL_QUERY = "SELECT p FROM Property p";
+	private static final String ALL_PROPERTIES_QUERY_NAME = "allProperties";
 
 	public SystemPropertiesDAO() {
-		super(Property.class);
+		super(Property.class, ALL_PROPERTIES_QUERY_NAME);
 	}
-
-	@Override
-	public String getAllQuery() {
-		return GET_ALL_QUERY;
-	}
-
 }

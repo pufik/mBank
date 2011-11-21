@@ -5,15 +5,9 @@ import com.epam.mbank.model.activity.Activity;
 
 public class ActivityDAO extends BaseDAO<Activity> {
 
-	private final static String GET_ALL_QUERY = "SELECT a FROM Activity a";
+	private static final String ALL_ACTIVITY_QUERY_NAME = "allActivities";
 
 	public ActivityDAO() {
-		super(Activity.class);
+		super(Activity.class, ALL_ACTIVITY_QUERY_NAME);
 	}
-
-	@Override
-	public String getAllQuery() {
-		return GET_ALL_QUERY;
-	}
-
 }

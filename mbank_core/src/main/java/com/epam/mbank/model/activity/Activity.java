@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,6 +19,8 @@ import com.epam.mbank.model.client.Client;
 
 @Entity
 @Table(name = "ACTIVITY")
+@NamedQueries({@NamedQuery(name = "allActivities", query = "SELECT a FROM Activity a")})
+
 public class Activity implements Serializable {
 
 	private static final long serialVersionUID = 1182536670217352294L;
