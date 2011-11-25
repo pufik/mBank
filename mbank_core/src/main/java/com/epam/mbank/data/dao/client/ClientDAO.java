@@ -1,6 +1,6 @@
-package com.epam.mbank.dao.client;
+package com.epam.mbank.data.dao.client;
 
-import com.epam.mbank.dao.BaseDAO;
+import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.model.client.Client;
 
 public class ClientDAO extends BaseDAO<Client> {

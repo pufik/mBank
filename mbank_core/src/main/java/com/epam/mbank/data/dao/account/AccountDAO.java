@@ -1,6 +1,6 @@
-package com.epam.mbank.dao.account;
+package com.epam.mbank.data.dao.account;
 
-import com.epam.mbank.dao.BaseDAO;
+import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.model.account.Account;
 
 public class AccountDAO extends BaseDAO<Account> {

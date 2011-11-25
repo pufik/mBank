@@ -1,6 +1,6 @@
-package com.epam.mbank.dao.deposit;
+package com.epam.mbank.data.dao.deposit;
 
-import com.epam.mbank.dao.BaseDAO;
+import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.model.deposit.Deposit;
 
 public class DepositDAO extends BaseDAO<Deposit> {

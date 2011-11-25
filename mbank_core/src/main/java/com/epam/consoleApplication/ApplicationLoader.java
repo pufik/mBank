@@ -5,8 +5,8 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.epam.mbank.dao.client.ClientDAO;
-import com.epam.mbank.dao.deposit.DepositDAO;
+import com.epam.mbank.data.dao.client.ClientDAO;
+import com.epam.mbank.data.dao.deposit.DepositDAO;
 import com.epam.mbank.model.client.Client;
 import com.epam.mbank.utils.system.SystemInitialization;
 

@@ -1,4 +1,4 @@
-package com.epam.mbank.dao;
+package com.epam.mbank.data.dao;
 
 import java.util.Collection;
 

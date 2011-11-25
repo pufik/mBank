@@ -1,6 +1,6 @@
-package com.epam.mbank.dao.system;
+package com.epam.mbank.data.dao.system;
 
-import com.epam.mbank.dao.BaseDAO;
+import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.model.system.Property;
 
 public class SystemPropertiesDAO extends BaseDAO<Property> {
