@@ -28,11 +28,11 @@ import com.epam.mbank.model.deposit.Deposit;
 
 @Entity
 @Table(name = "CLIENTS")
-@NamedQueries({
-	@NamedQuery(name = "allClients", query = "SELECT c FROM Client c"),
-	@NamedQuery(name = "getClientByName", query = "SELECT c FROM Client c WHERE c.name = :name")
-	})
-
+@NamedQueries({ 
+		@NamedQuery(name = "Client.all", query = "SELECT c FROM Client c"),
+		@NamedQuery(name = "Client.getByName", query = "SELECT c FROM Client c WHERE c.name = :name"),
+		@NamedQuery(name = "Client.getByEmail", query = "SELECT c FROM Client c WHERE c.email = :email")
+		})
 public class Client implements Serializable {
 
 	private static final long serialVersionUID = -8238008002508028701L;
@@ -60,7 +60,7 @@ public class Client implements Serializable {
 	@Column(name = "ADDRESS")
 	private String address = null;
 
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", unique = true)
 	private String email = null;
 
 	@Column(name = "PHONE")

@@ -20,5 +20,5 @@ public class EntityManagerUtil {
 	public static EntityManagerFactory getEntityFactory() {
 		return entityFactory;
 	}
-
+	
 }

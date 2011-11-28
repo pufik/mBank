@@ -1,20 +1,22 @@
 package com.epam.mbank.data.dao;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import com.epam.mbank.utils.persistence.EntityManagerUtil;
 
 public abstract class BaseDAO<T> {
+	// TODO Change getAll method
 	private EntityManager entityManager = null;
 	private Class<T> objectClass = null;
-	private String allQueryName = null;
 
-	public BaseDAO(Class<T> objectClass, String allQueryName) {
+	public BaseDAO(Class<T> objectClass) {
 		entityManager = EntityManagerUtil.getEntityManager();
 		this.objectClass = objectClass;
-		this.allQueryName = allQueryName;
 	}
 
 	public void save(T object) {
@@ -43,13 +45,43 @@ public abstract class BaseDAO<T> {
 		return object;
 	}
 
-	public Collection<T> getAll() {
-		return (Collection<T>) entityManager.createNamedQuery(allQueryName, objectClass).getResultList();
-	}
+	public abstract List<T> getAll();
 
 	public void remove(T object) {
 		entityManager.getTransaction().begin();
 		entityManager.remove(object);
 		entityManager.getTransaction().commit();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<T> executeQuery(String queryName, Map<String, String> parameters) {
+		List<T> resultList = null;
+
+		beginTransaction();
+
+		Query query = getEntityManager().createNamedQuery(queryName, objectClass);
+
+		// Set query parameters
+		for (String key : parameters.keySet()) {
+			query.setParameter(key, parameters.get(key));
+		}
+
+		resultList = (List<T>) query.getResultList();
+
+		closeTransaction();
+
+		return resultList;
+	}
+
+	public void beginTransaction() {
+		EntityManagerUtil.getEntityManager().getTransaction().begin();
+	}
+
+	public void closeTransaction() {
+		EntityManagerUtil.getEntityManager().getTransaction().commit();
+	}
+
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 }
