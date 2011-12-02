@@ -45,8 +45,6 @@ public abstract class BaseDAO<T> {
 		return object;
 	}
 
-	public abstract List<T> getAll();
-
 	public void remove(T object) {
 		entityManager.getTransaction().begin();
 		entityManager.remove(object);
@@ -54,7 +52,7 @@ public abstract class BaseDAO<T> {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<T> executeQuery(String queryName, Map<String, String> parameters) {
+	protected List<T> executeQuery(String queryName, Map<String, Object> parameters) {
 		List<T> resultList = null;
 
 		beginTransaction();
@@ -71,6 +69,18 @@ public abstract class BaseDAO<T> {
 		closeTransaction();
 
 		return resultList;
+	}
+
+	protected T executeQuerySingleResult(String queryName, Map<String, Object> parameters) {
+
+		List<T> objects = executeQuery(queryName, parameters);
+		T object = null;
+
+		if (!objects.isEmpty()) {
+			object = objects.get(0);
+		}
+
+		return object;
 	}
 
 	public void beginTransaction() {

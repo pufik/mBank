@@ -37,6 +37,7 @@ public class DataProvider implements Provider {
 	public Client getClientById(Long id) {
 		
 		return clientDao.getById(id);
+		
 	}
 
 	@Override

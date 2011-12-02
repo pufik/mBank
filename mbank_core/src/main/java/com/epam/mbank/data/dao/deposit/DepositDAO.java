@@ -3,9 +3,10 @@ package com.epam.mbank.data.dao.deposit;
 import java.util.List;
 
 import com.epam.mbank.data.dao.BaseDAO;
+import com.epam.mbank.data.dao.DefaultDAO;
 import com.epam.mbank.model.deposit.Deposit;
 
-public class DepositDAO extends BaseDAO<Deposit> {
+public class DepositDAO extends BaseDAO<Deposit> implements DefaultDAO<Deposit> {
 
 	private static final String ALL_DEPOSITS_QUERY_NAME = "allDeposits";
 

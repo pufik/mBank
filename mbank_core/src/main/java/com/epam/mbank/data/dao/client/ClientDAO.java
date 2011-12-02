@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.epam.mbank.data.dao.BaseDAO;
+import com.epam.mbank.data.dao.DefaultDAO;
 import com.epam.mbank.model.client.Client;
 
-public class ClientDAO extends BaseDAO<Client> {
+public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 
 	private static final String ALL_CLIENTS_QUERY_NAME = "Client.all";
 	private static final String CLIENT_BY_NAME_QUERY_NAME = "Client.getByName";
@@ -19,35 +20,27 @@ public class ClientDAO extends BaseDAO<Client> {
 
 	@Override
 	public List<Client> getAll() {
-		List<Client> clients = null;
+		Map<String, Object> parameters = new HashMap<String, Object>();
 
-		Map<String, String> parameters = new HashMap<String, String>();
-
-		clients = executeQuery(ALL_CLIENTS_QUERY_NAME, parameters);
-
-		return clients;
+		return executeQuery(ALL_CLIENTS_QUERY_NAME, parameters);
 	}
 
 	public Client getClientByName(String name) {
-		List<Client> clients = null;
 
-		Map<String, String> parameters = new HashMap<String, String>();
+		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("name", name);
 
-		clients = executeQuery(CLIENT_BY_NAME_QUERY_NAME, parameters);
-
-		return clients.get(0);
+		return executeQuerySingleResult(CLIENT_BY_NAME_QUERY_NAME, parameters);
 	}
 
 	public Client getClientByEmail(String email) {
-		List<Client> clients = null;
 
-		Map<String, String> parameters = new HashMap<String, String>();
+		Map<String, Object> parameters = new HashMap<String, Object>();
+
 		parameters.put("email", email);
 
-		clients = executeQuery(CLIENT_BY_EMAIL_QUERY_NAME, parameters);
+		return executeQuerySingleResult(CLIENT_BY_EMAIL_QUERY_NAME, parameters);
 
-		return clients.get(0);
 	}
 
 }
