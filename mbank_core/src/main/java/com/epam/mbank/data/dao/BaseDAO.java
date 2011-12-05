@@ -20,35 +20,42 @@ public abstract class BaseDAO<T> {
 	}
 
 	public void save(T object) {
-		entityManager.getTransaction().begin();
+		beginTransaction();
 		entityManager.persist(object);
-		entityManager.getTransaction().commit();
+		closeTransaction();
+	}
+
+	public void update(T object) {
+		beginTransaction();
+		entityManager.merge(object);
+		closeTransaction();
 	}
 
 	public void saveAll(Collection<T> objects) {
 
-		entityManager.getTransaction().begin();
+		beginTransaction();
 
 		for (T object : objects) {
 			entityManager.persist(object);
 		}
 
-		entityManager.getTransaction().commit();
+		closeTransaction();
 	}
 
 	public T getById(Long id) {
 		T object = null;
-		entityManager.getTransaction().begin();
+
+		beginTransaction();
 		object = (T) entityManager.find(objectClass, id);
-		entityManager.getTransaction().commit();
+		closeTransaction();
 
 		return object;
 	}
 
 	public void remove(T object) {
-		entityManager.getTransaction().begin();
+		beginTransaction();
 		entityManager.remove(object);
-		entityManager.getTransaction().commit();
+		closeTransaction();
 	}
 
 	@SuppressWarnings("unchecked")

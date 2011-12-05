@@ -19,7 +19,9 @@ import com.epam.mbank.model.client.Client;
 
 @Entity
 @Table(name = "ACCOUNTS")
-@NamedQueries({@NamedQuery(name = "allAccounts", query = "SELECT a FROM Account a")})
+@NamedQueries({
+	@NamedQuery(name = "Account.all", query = "SELECT a FROM Account a")
+})
 
 public class Account implements Serializable {
 

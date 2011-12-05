@@ -2,6 +2,11 @@ package com.epam.mbank.control.action.admin;
 
 import java.util.List;
 
+import com.epam.mbank.data.dao.account.AccountDAO;
+import com.epam.mbank.data.dao.activity.ActivityDAO;
+import com.epam.mbank.data.dao.client.ClientDAO;
+import com.epam.mbank.data.dao.deposit.DepositDAO;
+import com.epam.mbank.data.dao.system.SystemPropertiesDAO;
 import com.epam.mbank.data.provider.DataProvider;
 import com.epam.mbank.data.provider.Provider;
 import com.epam.mbank.enums.ClientStatus;
@@ -13,92 +18,98 @@ import com.epam.mbank.model.client.Client;
 import com.epam.mbank.model.deposit.Deposit;
 import com.epam.mbank.model.system.Property;
 
-public class AdminActionManager {
+public class AdminActionManager implements AdminAction {
 
 	private Provider dataProvider = null;
+	private ClientDAO clientDao = null;
+	private AccountDAO accountDao = null;
+	private DepositDAO depositDao = null;
+	private ActivityDAO activityDao = null;
+	private SystemPropertiesDAO propertiesDao = null;
 
 	public AdminActionManager() {
-		dataProvider = new DataProvider();
-
+		clientDao = new ClientDAO();
+		accountDao = new AccountDAO();
+		depositDao = new DepositDAO();
+		activityDao = new ActivityDAO();
+		propertiesDao = new SystemPropertiesDAO();
 	}
 
+	// Client actions
 	public Client getClientById(Long id) {
 
-		return dataProvider.getClientById(id);
+		return clientDao.getById(id);
 	}
 
 	public Client getClientByName(String name) {
 
-		return dataProvider.getClientByName(name);
+		return clientDao.getClientByName(name);
 	}
 
 	public Client getClientByEmail(String email) {
 
-		return dataProvider.getClientByEmail(email);
+		return clientDao.getClientByEmail(email);
 	}
 
 	public Client getClientByPhone(String phone) {
 
-		return dataProvider.getClientByPhone(phone);
+		return clientDao.getClientByPhone(phone);
 	}
 
-	public Client getClientByStatus(ClientStatus status) {
+	public List<Client> getClientByStatus(ClientStatus status) {
 
-		return dataProvider.getClientByStatus(status);
+		return clientDao.getClientByStatus(status);
 	}
 
-	public Client getClientByType(ClientType type) {
+	public List<Client> getClientByType(ClientType type) {
 
-		return dataProvider.getClientByType(type);
+		return clientDao.getClientByType(type);
 	}
 
 	public List<Client> getAllClients() {
 
-		return dataProvider.getAllClients();
+		return clientDao.getAll();
 	}
 
 	public void createClient(Client client) {
 
-		dataProvider.createClient(client);
+		clientDao.save(client);
 	}
 
 	public void removeClient(Client client) {
 
-		dataProvider.removeClient(client);
+		clientDao.remove(client);
 	}
 
 	public void updateClient(Client client) {
 
-		dataProvider.updateClient(client);
+		clientDao.update(client);
 	}
 
+	// Account actions
 	public Account getAccountById(Long id) {
 
-		return dataProvider.getAccountById(id);
-	}
-
-	public Account getAccountByClient(Client client) {
-
-		return dataProvider.getAccountByClient(client);
+		return accountDao.getById(id);
 	}
 
 	public List<Account> getAllAccounts() {
 
-		return dataProvider.getAllAccounts();
+		return accountDao.getAll();
 	}
 
 	public void createAccount(Account account) {
 
-		dataProvider.createAccount(account);
+		accountDao.save(account);
 
 	}
 
 	public void removeAccount(Account accont) {
 
-		dataProvider.removeAccount(accont);
+		accountDao.remove(accont);
 
 	}
 
+	//Deposit actions
 	public Deposit getDepositById(Long id) {
 
 		return dataProvider.getDepositById(id);
@@ -136,6 +147,7 @@ public class AdminActionManager {
 
 	}
 
+	//Activity actions
 	public List<Activity> getAllClientActivities(Client client) {
 
 		return dataProvider.getAllClientActivities(client);
@@ -146,6 +158,7 @@ public class AdminActionManager {
 		return dataProvider.getAllActivities();
 	}
 
+	//System properties
 	public List<Property> viewAllProperties() {
 
 		return dataProvider.viewAllProperties();
