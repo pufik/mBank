@@ -109,7 +109,8 @@ public class AdminActionManager implements AdminAction {
 
 	}
 
-	//Deposit actions
+	// TODO change data accessors
+	// Deposit actions
 	public Deposit getDepositById(Long id) {
 
 		return dataProvider.getDepositById(id);
@@ -147,7 +148,7 @@ public class AdminActionManager implements AdminAction {
 
 	}
 
-	//Activity actions
+	// Activity actions
 	public List<Activity> getAllClientActivities(Client client) {
 
 		return dataProvider.getAllClientActivities(client);
@@ -158,7 +159,7 @@ public class AdminActionManager implements AdminAction {
 		return dataProvider.getAllActivities();
 	}
 
-	//System properties
+	// System properties
 	public List<Property> viewAllProperties() {
 
 		return dataProvider.viewAllProperties();
