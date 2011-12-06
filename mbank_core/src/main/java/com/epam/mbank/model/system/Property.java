@@ -13,7 +13,7 @@ import com.epam.mbank.enums.SystemProperty;
 
 @Entity
 @Table(name = "PROPERTIES")
-@NamedQueries({@NamedQuery(name = "allProperties", query = "SELECT p FROM Property p")})
+@NamedQueries({@NamedQuery(name = "Property.all", query = "SELECT p FROM Property p")})
 public class Property implements Serializable {
 
 	private static final long serialVersionUID = 4646946339447884986L;

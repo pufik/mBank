@@ -1,6 +1,6 @@
 package com.epam.mbank.data.dao.account;
 
-import java.util.HashMap;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +18,8 @@ public class AccountDAO extends BaseDAO<Account> implements DefaultDAO<Account> 
 
 	@Override
 	public List<Account> getAll() {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+
+		Map<String, Object> parameters = Collections.emptyMap();
 
 		return executeQuery(ALL_ACCOUNTS_QUERY_NAME, parameters);
 	}

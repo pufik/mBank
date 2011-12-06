@@ -5,9 +5,8 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.epam.mbank.control.action.admin.AdminActionManager;
+import com.epam.mbank.control.action.admin.impl.AdminActionManager;
 import com.epam.mbank.data.dao.client.ClientDAO;
-import com.epam.mbank.data.dao.deposit.DepositDAO;
 import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.client.Client;
 import com.epam.mbank.utils.system.SystemInitialization;
@@ -23,7 +22,7 @@ public class ApplicationLoader {
 		logger.info("Start add info.");
 
 		ClientDAO clientDao = new ClientDAO();
-		Client client = clientDao.getById(Long.valueOf(5));
+		Client client = clientDao.getById(5L);
 		Collection<Client> clientList = clientDao.getAll();
 
 		clientList = (new AdminActionManager()).getClientByType(ClientType.GOLD);

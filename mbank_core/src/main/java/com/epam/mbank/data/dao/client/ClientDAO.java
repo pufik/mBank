@@ -1,5 +1,6 @@
 package com.epam.mbank.data.dao.client;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,12 +26,12 @@ public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 
 	@Override
 	public List<Client> getAll() {
-		Map<String, Object> parameters = new HashMap<String, Object>();
+		Map<String, Object> parameters = Collections.emptyMap();
 
 		return executeQuery(ALL_CLIENTS_QUERY_NAME, parameters);
 	}
 
-	public Client getClientByName(String name) {
+	public Client getByName(String name) {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("name", name);
@@ -38,7 +39,7 @@ public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 		return executeQuerySingleResult(CLIENT_BY_NAME_QUERY_NAME, parameters);
 	}
 
-	public Client getClientByEmail(String email) {
+	public Client getByEmail(String email) {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
@@ -48,7 +49,7 @@ public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 
 	}
 
-	public Client getClientByPhone(String phone) {
+	public Client getByPhone(String phone) {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
@@ -58,7 +59,7 @@ public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 
 	}
 
-	public List<Client> getClientByStatus(ClientStatus status) {
+	public List<Client> getByStatus(ClientStatus status) {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 
@@ -67,7 +68,7 @@ public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
 		return executeQuery(CLIENT_BY_STATUS_QUERY_NAME, parameters);
 	}
 
-	public List<Client> getClientByType(ClientType type) {
+	public List<Client> getByType(ClientType type) {
 
 		Map<String, Object> parameters = new HashMap<String, Object>();
 

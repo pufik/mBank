@@ -20,7 +20,9 @@ import com.epam.mbank.model.client.Client;
 
 @Entity
 @Table(name = "DEPOSITS")
-@NamedQueries({@NamedQuery(name = "allDeposits", query = "SELECT d FROM Deposit d")})
+@NamedQueries({@NamedQuery(name = "Deposit.all", query = "SELECT d FROM Deposit d"),
+@NamedQuery(name = "Deposit.getByType", query = "SELECT d FROM Deposit d WHERE d.type=:type")	
+})
 
 public class Deposit implements Serializable {
 

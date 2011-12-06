@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import com.epam.mbank.utils.persistence.EntityManagerUtil;
 
 public abstract class BaseDAO<T> {
-	// TODO Change getAll method
+	
 	private EntityManager entityManager = null;
 	private Class<T> objectClass = null;
 

@@ -1,6 +1,8 @@
 package com.epam.mbank.data.dao.activity;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.data.dao.DefaultDAO;
@@ -8,7 +10,7 @@ import com.epam.mbank.model.activity.Activity;
 
 public class ActivityDAO extends BaseDAO<Activity> implements DefaultDAO<Activity> {
 
-	private static final String ALL_ACTIVITY_QUERY_NAME = "allActivities";
+	private static final String ALL_ACTIVITY_QUERY_NAME = "Activity.all";
 
 	public ActivityDAO() {
 		super(Activity.class);
@@ -16,7 +18,9 @@ public class ActivityDAO extends BaseDAO<Activity> implements DefaultDAO<Activit
 
 	@Override
 	public List<Activity> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Map<String, Object> parameters = Collections.emptyMap();
+
+		return executeQuery(ALL_ACTIVITY_QUERY_NAME, parameters);
 	}
 }

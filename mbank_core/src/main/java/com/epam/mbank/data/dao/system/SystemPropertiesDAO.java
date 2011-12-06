@@ -1,6 +1,8 @@
 package com.epam.mbank.data.dao.system;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.data.dao.DefaultDAO;
@@ -8,7 +10,7 @@ import com.epam.mbank.model.system.Property;
 
 public class SystemPropertiesDAO extends BaseDAO<Property> implements DefaultDAO<Property> {
 
-	private static final String ALL_PROPERTIES_QUERY_NAME = "allProperties";
+	private static final String ALL_PROPERTIES_QUERY_NAME = "Property.all";
 
 	public SystemPropertiesDAO() {
 		super(Property.class);
@@ -16,7 +18,17 @@ public class SystemPropertiesDAO extends BaseDAO<Property> implements DefaultDAO
 
 	@Override
 	public List<Property> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Map<String, Object> parameters = Collections.emptyMap();
+
+		return executeQuery(ALL_PROPERTIES_QUERY_NAME, parameters);
+	}
+	
+	public List<Property> getPublic() {
+
+		//TODO change getting for public properties
+		Map<String, Object> parameters = Collections.emptyMap();
+
+		return executeQuery(ALL_PROPERTIES_QUERY_NAME, parameters);
 	}
 }
