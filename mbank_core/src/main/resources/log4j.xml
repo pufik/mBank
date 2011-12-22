@@ -28,7 +28,7 @@
 			<param name="ConversionPattern" value="[%-5p] [%t]: |%d| %C{6} (%F:%L) - %m%n" />
 		</layout>
 	</appender>
-
+ 
 	<!-- LOGGER LIST -->
 	<logger name="com.epam.mbank">
 		<!-- level info logs -->
@@ -37,7 +37,7 @@
 	</logger>
 
 	<logger name="org.hibernate">
-		<level value="WARN" />
+		<level value="ERROR" />
 		<appender-ref ref="hibernateFileAppender" />
 	</logger>
 

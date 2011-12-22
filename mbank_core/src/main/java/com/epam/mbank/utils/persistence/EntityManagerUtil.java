@@ -4,21 +4,22 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class EntityManagerUtil {
+public enum EntityManagerUtil {
+	INSTANCE;
 
 	private final static String PERSISTENCE_UNIT = "mBankPersistenceUnit";
-	private static EntityManagerFactory entityFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
-	private static EntityManager entityManager = entityFactory.createEntityManager();
+
+	private EntityManagerFactory entityFactory;
 
 	private EntityManagerUtil() {
+		this.entityFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 	}
 
-	public static EntityManager getEntityManager() {
-		return entityManager;
+	public EntityManager getEntityManager() {
+		return entityFactory.createEntityManager();
 	}
 
-	public static EntityManagerFactory getEntityFactory() {
+	public EntityManagerFactory getEntityFactory() {
 		return entityFactory;
 	}
-	
 }

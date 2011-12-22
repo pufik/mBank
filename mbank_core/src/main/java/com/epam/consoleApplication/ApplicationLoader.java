@@ -5,7 +5,7 @@ import java.util.Collection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.epam.mbank.control.action.admin.impl.AdminActionManager;
+import com.epam.mbank.control.action.admin.impl.AdminClientActionImpl;
 import com.epam.mbank.data.dao.client.ClientDAO;
 import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.client.Client;
@@ -25,10 +25,8 @@ public class ApplicationLoader {
 		Client client = clientDao.getById(5L);
 		Collection<Client> clientList = clientDao.getAll();
 
-		clientList = (new AdminActionManager()).getClientByType(ClientType.GOLD);
-
-		int a = 0;
-
+		clientList = (new AdminClientActionImpl()).getClientByType(ClientType.GOLD);
+		
 	}
 
 }

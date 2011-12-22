@@ -10,12 +10,12 @@ import javax.persistence.Query;
 import com.epam.mbank.utils.persistence.EntityManagerUtil;
 
 public abstract class BaseDAO<T> {
-	
+
 	private EntityManager entityManager = null;
 	private Class<T> objectClass = null;
 
 	public BaseDAO(Class<T> objectClass) {
-		entityManager = EntityManagerUtil.getEntityManager();
+		entityManager = EntityManagerUtil.INSTANCE.getEntityManager();
 		this.objectClass = objectClass;
 	}
 
@@ -91,11 +91,11 @@ public abstract class BaseDAO<T> {
 	}
 
 	public void beginTransaction() {
-		EntityManagerUtil.getEntityManager().getTransaction().begin();
+		entityManager.getTransaction().begin();
 	}
 
 	public void closeTransaction() {
-		EntityManagerUtil.getEntityManager().getTransaction().commit();
+		entityManager.getTransaction().commit();
 	}
 
 	public EntityManager getEntityManager() {
