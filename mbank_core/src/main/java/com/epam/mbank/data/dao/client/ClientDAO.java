@@ -11,7 +11,7 @@ import com.epam.mbank.enums.ClientStatus;
 import com.epam.mbank.enums.ClientType;
 import com.epam.mbank.model.client.Client;
 
-public class ClientDAO extends BaseDAO<Client> implements DefaultDAO<Client> {
+public class ClientDAO extends BaseDAO<Client, Long> implements DefaultDAO<Client> {
 
 	private static final String ALL_CLIENTS_QUERY_NAME = "Client.all";
 	private static final String CLIENT_BY_NAME_QUERY_NAME = "Client.getByName";

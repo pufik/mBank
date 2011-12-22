@@ -8,7 +8,7 @@ import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.data.dao.DefaultDAO;
 import com.epam.mbank.model.system.Property;
 
-public class SystemPropertiesDAO extends BaseDAO<Property> implements DefaultDAO<Property> {
+public class SystemPropertiesDAO extends BaseDAO<Property, String> implements DefaultDAO<Property> {
 
 	private static final String ALL_PROPERTIES_QUERY_NAME = "Property.all";
 

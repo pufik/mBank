@@ -9,7 +9,7 @@ import javax.persistence.Query;
 
 import com.epam.mbank.utils.persistence.EntityManagerUtil;
 
-public abstract class BaseDAO<T> {
+public abstract class BaseDAO<T, I> {
 
 	private EntityManager entityManager = null;
 	private Class<T> objectClass = null;
@@ -42,7 +42,7 @@ public abstract class BaseDAO<T> {
 		closeTransaction();
 	}
 
-	public T getById(Long id) {
+	public T getById(I id) {
 		T object = null;
 
 		beginTransaction();

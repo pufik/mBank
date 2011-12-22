@@ -10,7 +10,7 @@ import com.epam.mbank.data.dao.DefaultDAO;
 import com.epam.mbank.enums.DepositType;
 import com.epam.mbank.model.deposit.Deposit;
 
-public class DepositDAO extends BaseDAO<Deposit> implements DefaultDAO<Deposit> {
+public class DepositDAO extends BaseDAO<Deposit, Long> implements DefaultDAO<Deposit> {
 
 	private static final String ALL_DEPOSITS_QUERY_NAME = "Deposit.all";
 	private static final String DEPOSITS_BY_TYPE_QUERY_NAME = "Deposit.getByType";

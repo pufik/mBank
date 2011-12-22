@@ -8,7 +8,7 @@ import com.epam.mbank.data.dao.BaseDAO;
 import com.epam.mbank.data.dao.DefaultDAO;
 import com.epam.mbank.model.activity.Activity;
 
-public class ActivityDAO extends BaseDAO<Activity> implements DefaultDAO<Activity> {
+public class ActivityDAO extends BaseDAO<Activity, Long> implements DefaultDAO<Activity> {
 
 	private static final String ALL_ACTIVITY_QUERY_NAME = "Activity.all";
 
