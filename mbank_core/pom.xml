@@ -18,11 +18,18 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>3.5.3-Final</version>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.0-801.jdbc3</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -40,6 +47,15 @@
 			<version>1.2.16</version>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-core</artifactId>
+			<version>3.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- <dependency> <groupId>org.unitils</groupId> <artifactId>unitils-dbunit</artifactId> 
+			<version>3.3</version> <scope>test</scope> </dependency> -->
 	</dependencies>
 
 	<build>

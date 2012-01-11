@@ -2,6 +2,8 @@ package com.epam.mbank.control.action.admin.impl;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import com.epam.mbank.control.action.admin.AdminDepositAction;
 import com.epam.mbank.data.dao.deposit.DepositDAO;
 import com.epam.mbank.enums.DepositType;
@@ -14,11 +16,12 @@ import com.epam.mbank.model.deposit.Deposit;
  */
 
 public class AdminDepositActionImpl implements AdminDepositAction {
-	private DepositDAO depositDao;
+	private final DepositDAO depositDao;
 
-	public AdminDepositActionImpl() {
+	@Inject
+	public AdminDepositActionImpl(DepositDAO depositDao) {
 		super();
-		this.depositDao = new DepositDAO();
+		this.depositDao = depositDao;
 	}
 
 	@Override

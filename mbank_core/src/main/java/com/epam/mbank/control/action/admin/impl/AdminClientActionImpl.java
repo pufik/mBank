@@ -2,6 +2,8 @@ package com.epam.mbank.control.action.admin.impl;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import com.epam.mbank.control.action.admin.AdminClientAction;
 import com.epam.mbank.data.dao.client.ClientDAO;
 import com.epam.mbank.enums.ClientStatus;
@@ -10,16 +12,17 @@ import com.epam.mbank.model.client.Client;
 
 /**
  * @author Iurii_Parfeniuk
- *
+ * 
  */
 
 public class AdminClientActionImpl implements AdminClientAction {
 
-	private ClientDAO clientDao;
+	private final ClientDAO clientDao;
 
-	public AdminClientActionImpl() {
+	@Inject
+	public AdminClientActionImpl(ClientDAO clientDao) {
 		super();
-		this.clientDao = new ClientDAO();
+		this.clientDao = clientDao;
 	}
 
 	@Override

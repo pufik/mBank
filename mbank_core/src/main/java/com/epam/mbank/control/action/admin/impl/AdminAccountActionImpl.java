@@ -2,23 +2,27 @@ package com.epam.mbank.control.action.admin.impl;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import com.epam.mbank.control.action.admin.AdminAccountAction;
 import com.epam.mbank.data.dao.account.AccountDAO;
 import com.epam.mbank.model.account.Account;
 
 /**
- * Provides operations for client's accounts. 
+ * Provides operations for client's accounts.
+ * 
  * @author Iurii_Parfeniuk
- *
+ * 
  */
 
 public class AdminAccountActionImpl implements AdminAccountAction {
 
-	private AccountDAO accountDao;
+	private final AccountDAO accountDao;
 
-	public AdminAccountActionImpl() {
+	@Inject
+	public AdminAccountActionImpl(AccountDAO accountDao) {
 		super();
-		this.accountDao = new AccountDAO();
+		this.accountDao = accountDao;
 	}
 
 	@Override

@@ -2,6 +2,8 @@ package com.epam.mbank.control.action.admin.impl;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import com.epam.mbank.control.action.admin.AdminActivityAction;
 import com.epam.mbank.data.dao.activity.ActivityDAO;
 import com.epam.mbank.model.activity.Activity;
@@ -15,10 +17,11 @@ import com.epam.mbank.model.activity.Activity;
 
 public class AdminActivityActionImpl implements AdminActivityAction {
 
-	private ActivityDAO activityDao;
+	private final ActivityDAO activityDao;
 
-	public AdminActivityActionImpl() {
-		this.activityDao = new ActivityDAO();
+	@Inject
+	public AdminActivityActionImpl(ActivityDAO activityDao) {
+		this.activityDao = activityDao;
 	}
 
 	@Override

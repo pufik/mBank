@@ -1,5 +1,8 @@
 package com.epam.mbank.control.action.client;
 
-public interface ClientActivityAction {
+import com.epam.mbank.model.activity.Activity;
+import com.epam.mbank.model.client.Client;
 
+public interface ClientActivityAction {
+	Activity getByClient(Client client);
 }
