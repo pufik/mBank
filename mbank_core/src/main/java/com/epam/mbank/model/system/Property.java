@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import com.epam.mbank.enums.SystemProperty;
 
 @Entity
-@Table(name = "PROPERTIES")
+@Table(name = "PROPERTY")
 @NamedQueries({@NamedQuery(name = "Property.all", query = "SELECT p FROM Property p")})
 public class Property implements Serializable {
 

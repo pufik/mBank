@@ -27,19 +27,19 @@ public class ApplicationLoader {
 		Injector injector = Guice.createInjector(new DAOModule(), new AdminModule());
 		ClientDAO clientDao = injector.getInstance(ClientDAO.class);
 		AdminClientAction adminClientManager = injector.getInstance(AdminClientAction.class);
-		Collection<Client> clientList;
-		logger.info("Start add info.");
-		Client client = new Client();
-		
-		client.setName("Iurii");
-		client.setType(ClientType.GOLD);
-		client.setStatus(ClientStatus.ACTIVE);
-		client.setEmail("sdsdfsdfsdddddwddd");
-		adminClientManager.createClient(client);
-
-		clientList = clientDao.getAll();
-
-		clientList = adminClientManager.getClientByType(ClientType.GOLD);
+//		Collection<Client> clientList;
+//		logger.info("Start add info.");
+//		Client client = new Client();
+//		
+//		client.setName("Iurii");
+//		client.setType(ClientType.GOLD);
+//		client.setStatus(ClientStatus.ACTIVE);
+//		client.setEmail("sdsdfsdfsdddddwddd");
+//		adminClientManager.createClient(client);
+//
+//		clientList = clientDao.getAll();
+//
+//		clientList = adminClientManager.getClientByType(ClientType.GOLD);
 
 	}
 

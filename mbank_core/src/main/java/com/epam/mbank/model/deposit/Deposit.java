@@ -19,7 +19,7 @@ import com.epam.mbank.enums.DepositType;
 import com.epam.mbank.model.client.Client;
 
 @Entity
-@Table(name = "DEPOSITS")
+@Table(name = "DEPOSIT")
 @NamedQueries({@NamedQuery(name = "Deposit.all", query = "SELECT d FROM Deposit d"),
 @NamedQuery(name = "Deposit.getByType", query = "SELECT d FROM Deposit d WHERE d.type=:type")	
 })

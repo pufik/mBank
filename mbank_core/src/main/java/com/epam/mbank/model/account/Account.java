@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import com.epam.mbank.model.client.Client;
 
 @Entity
-@Table(name = "ACCOUNTS")
+@Table(name = "ACCOUNT")
 @NamedQueries({
 	@NamedQuery(name = "Account.all", query = "SELECT a FROM Account a")
 })

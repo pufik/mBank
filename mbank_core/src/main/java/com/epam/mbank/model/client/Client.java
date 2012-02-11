@@ -27,7 +27,7 @@ import com.epam.mbank.model.activity.Activity;
 import com.epam.mbank.model.deposit.Deposit;
 
 @Entity
-@Table(name = "CLIENTS")
+@Table(name = "CLIENT")
 @NamedQueries({ @NamedQuery(name = "Client.all", query = "SELECT c FROM Client c"),
 		@NamedQuery(name = "Client.getByName", query = "SELECT c FROM Client c WHERE c.name = :name"),
 		@NamedQuery(name = "Client.getByEmail", query = "SELECT c FROM Client c WHERE c.email = :email"),
@@ -49,7 +49,7 @@ public class Client implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private ClientStatus status = null;
 
-	@Column(name = "CLIENT_NAME")
+	@Column(name = "NAME")
 	private String name = null;
 
 	@Column(name = "PASSWORD")

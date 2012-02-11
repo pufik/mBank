@@ -17,7 +17,7 @@
 		<properties>
 			<!-- Database connection settings -->
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/mbank2" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://localhost/mbank" />
 			<property name="hibernate.connection.username" value="mbank" />
 			<property name="hibernate.connection.password" value="1234" />
 
@@ -26,7 +26,7 @@
 			<property name="hibernate.show_sql" value="true" />
 
 			<!-- Validate the database schema on startup -->
-			<property name="hibernate.hbm2ddl.auto" value="validate" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>
 
 	</persistence-unit>

@@ -51,43 +51,20 @@
 		<dependency>
 			<groupId>org.unitils</groupId>
 			<artifactId>unitils-core</artifactId>
-			<version>3.2</version>
+			<version>3.3</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- <dependency> <groupId>org.unitils</groupId> <artifactId>unitils-dbunit</artifactId> 
-			<version>3.3</version> <scope>test</scope> </dependency> -->
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-dbunit</artifactId>
+			<version>3.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.unitils</groupId>
+			<artifactId>unitils-database</artifactId>
+			<version>3.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>install</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/lib</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-	</build>
 </project>

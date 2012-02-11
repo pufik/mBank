@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<CLIENT CLIENT_ID="1000" STATUS="ACTIVE" NAME="Iurii Parfenon" PASSWORD="1234" TYPE="REGULAR" ADDRESS="Lviv region" EMAIL="iurii@gmail.com" PHONE="12345678" COMMENT="blablabla"  />
+	<CLIENT CLIENT_ID="1001" STATUS="DELETED" NAME="Roman Kantry" PASSWORD="1111" TYPE="GOLD" ADDRESS="Novoyavorivsk" EMAIL="roman@gmaul.com" PHONE="234" COMMENT="hohoho"  />
+	<CLIENT CLIENT_ID="1002" STATUS="ACTIVE" NAME="Nazar Vyshna" PASSWORD="5555" TYPE="PLATINUM" ADDRESS="Volyn region" EMAIL="nazar@gmail.com" PHONE="183" COMMENT="blablabla"  />
+	<CLIENT CLIENT_ID="1003" STATUS="DELETED" NAME="Petro Ravlyk" PASSWORD="2222" TYPE="GOLD" ADDRESS="Mostyska" EMAIL="petro@gmaul.com" PHONE="123" COMMENT="hohoho"  />
+</dataset>
