@@ -1,5 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<dataset>
-	<CLIENTS CLIENT_ID="1000" STATUS="ACTIVE" CLIENT_NAME="Iurii Parfeniuk" PASSWORD="1234" TYPE="REGULAR" ADDRESS="Lviv region" EMAIL="iurii@gmail.com" PHONE="12345678" COMMENT="blablabla"  />
-	<CLIENTS CLIENT_ID="1001" STATUS="ACTIVE" CLIENT_NAME="Roman Kantsir" PASSWORD="1111" TYPE="GOLD" ADDRESS="Novoyavorivsk" EMAIL="roman@gmaul.com" PHONE="12341234" COMMENT="hohoho"  />
-</dataset>
