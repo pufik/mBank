@@ -3,15 +3,21 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.epam.mbank</groupId>
-	<artifactId>mbank</artifactId>
-	<version>0.0.1</version>
-	<packaging>jar</packaging>
-	<name>my-mbank</name>
+	<artifactId>mbank-core</artifactId>
+	<version>1.0</version>
+	<packaging>pom</packaging>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<modules>
+		<module>mbank-model</module>
+		<module>mbank-data</module>
+		<module>mbank-business</module>
+		<module>mbank-service</module>
+		<module>mbank-utils</module>
+	</modules>
 	<dependencies>
 		<dependency>
 			<groupId>org.hibernate</groupId>
