@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoints  xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"  version="2.0">
+  <!-- Client's actions Service -->
+  <endpoint name="clientClientAction" implementation="com.epam.mbank.webservice.client.ClientClientService"  url-pattern="/services/mBank/client/client"/>
+  <endpoint name="clientDepositAction" implementation="com.epam.mbank.webservice.client.ClientDepositService"  url-pattern="/services/mBank/client/deposit"/>
+  <endpoint name="clientActivityAction" implementation="com.epam.mbank.webservice.client.ClientActivityService"  url-pattern="/services/mBank/client/activity"/>
+  <endpoint name="clientSystemAction" implementation="com.epam.mbank.webservice.client.ClientSystemService"  url-pattern="/services/mBank/client/system"/>
+  
+  <!-- Admin's actions Service -->
+  <endpoint name="adminClientAction" implementation="com.epam.mbank.webservice.admin.AdminClientService"  url-pattern="/services/mBank/admin/client"/>
+  <endpoint name="adminAccountAction" implementation="com.epam.mbank.webservice.admin.AdminAccountService"  url-pattern="/services/mBank/admin/account"/>
+  <endpoint name="adminDepositAction" implementation="com.epam.mbank.webservice.admin.AdminDepositService"  url-pattern="/services/mBank/admin/deposit"/>
+  <endpoint name="adminActivityAction" implementation="com.epam.mbank.webservice.admin.AdminActivityService"  url-pattern="/services/mBank/admin/activity"/>
+  <endpoint name="adminSystemAction" implementation="com.epam.mbank.webservice.admin.AdminSystemService"  url-pattern="/services/mBank/admin/system"/>
+  
+</endpoints>
