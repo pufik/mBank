@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<endpoints  xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime"  version="2.0">
-  <endpoint name="clientAction" implementation="com.epam.mbank.webservice.client.ClientService"  url-pattern="/services/mBank/client"/>
-  <endpoint name="adminAction" implementation="com.epam.mbank.webservice.admin.AdminClientService"  url-pattern="/services/mBank/admin/client"/>
-</endpoints>
